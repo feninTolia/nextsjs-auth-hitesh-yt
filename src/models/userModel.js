@@ -20,7 +20,10 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
   isAdmin: { type: Boolean, default: false },
-  forgot,
+  forgotPasswordToken: String,
+  forgotPasswordTokenExpiry: Date,
+  verifyToken: String,
+  verifyTokenExpiry: Date,
 });
 
 const User = mongoose.models.users || mongoose.model('users', userSchema);
