@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const ProfilePage = () => {
   const router = useRouter();
@@ -31,7 +31,6 @@ const ProfilePage = () => {
       >
         Logout
       </button>
-      <Toaster />
     </div>
   );
 };
