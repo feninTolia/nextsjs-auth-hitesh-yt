@@ -1,12 +1,15 @@
-import { NextURL } from 'next/dist/server/web/next-url';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
-  const isPublicPath = path === '/login' || path === '/signup';
-  const token = request.cookies.get('token')?.value || '';
+  const isPublicPath =
+    path === '/login' ||
+    path === '/signup' ||
+    path === '/verifyemail' ||
+    path === '/forgotpassword';
+  const token = request.cookies.get('token')?.value ?? '';
 
   if (isPublicPath && token) {
     return NextResponse.redirect(new URL('/profile', request.nextUrl));
@@ -20,5 +23,13 @@ export function middleware(request: NextRequest) {
 // See "Matching Paths" below to learn more
 
 export const config = {
-  matcher: ['/', '/profile/:id*', '/login', '/signup'],
+  matcher: [
+    '/',
+    '/profile/:id*',
+    '/login',
+    '/signup',
+    '/verifyemail',
+    '/forgotpassword',
+    // '/createpassword'
+  ],
 };

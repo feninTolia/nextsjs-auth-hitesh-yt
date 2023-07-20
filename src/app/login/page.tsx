@@ -68,6 +68,12 @@ const LoginPage = () => {
         {buttonDisabled ? 'No login' : 'Login'}
       </button>
       <Link href={'/signup'}>Visit signup page</Link>
+      <Link
+        href={'/forgotpassword'}
+        className="border p-2 rounded-lg mt-4 bg-gray-500 "
+      >
+        Forgot your password?
+      </Link>
     </div>
   );
 };
